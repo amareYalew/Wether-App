@@ -7,6 +7,9 @@ export default function displayWeather({ data }) {
         `${data.cod != 404 ? data.weather[0].icon : null}` +
         ".png";
 
+let  celsius= Math.floor(data.main.temp - 273.15)
+let fahrenheit=Math.floor(celsius * 1.8)+32
+
     return (
         <div className="displayweather">
             {data.cod != 404 ? (
@@ -21,7 +24,7 @@ export default function displayWeather({ data }) {
 
                         <h1>
                             {" "}
-                            {Math.floor(data.main.temp - 273.15)}
+                            {fahrenheit}
                             <sup>o</sup>
                         </h1>
                         <span className="weather-main">{data.weather[0].main}</span>
